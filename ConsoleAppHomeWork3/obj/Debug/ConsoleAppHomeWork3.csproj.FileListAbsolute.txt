@@ -1,0 +1,8 @@
+C:\Users\Александр\ConsoleAppHomeWork3\ConsoleAppHomeWork3\bin\Debug\ConsoleAppHomeWork3.exe.config
+C:\Users\Александр\ConsoleAppHomeWork3\ConsoleAppHomeWork3\bin\Debug\ConsoleAppHomeWork3.exe
+C:\Users\Александр\ConsoleAppHomeWork3\ConsoleAppHomeWork3\bin\Debug\ConsoleAppHomeWork3.pdb
+C:\Users\Александр\ConsoleAppHomeWork3\ConsoleAppHomeWork3\obj\Debug\ConsoleAppHomeWork3.csproj.AssemblyReference.cache
+C:\Users\Александр\ConsoleAppHomeWork3\ConsoleAppHomeWork3\obj\Debug\ConsoleAppHomeWork3.csproj.CoreCompileInputs.cache
+C:\Users\Александр\ConsoleAppHomeWork3\ConsoleAppHomeWork3\obj\Debug\ConsoleAppHomeWork3.exe
+C:\Users\Александр\ConsoleAppHomeWork3\ConsoleAppHomeWork3\obj\Debug\ConsoleAppHomeWork3.pdb
+C:\Users\Александр\ConsoleAppHomeWork3\ConsoleAppHomeWork3\obj\Debug\ConsoleAppHomeWork3.exe.config
