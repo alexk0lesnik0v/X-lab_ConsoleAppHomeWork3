@@ -29,6 +29,7 @@ namespace ConsoleAppHomeWork3
                     Monster monster = AddMonster();
                     if(monster != null)
                     monsters.Add(monster);
+                    monster.Move();
                 }
                 else if (input == "2")
                 {
@@ -46,7 +47,7 @@ namespace ConsoleAppHomeWork3
                     {
                         hitMonster.TakeDamage(Damage);
                         monsters.RemoveAt(hitMonster.Index);
-                        if(hitMonster.Health != 0)
+                        if(hitMonster.Health > 0)
                         { 
                             monsters.Insert(hitMonster.Index, hitMonster); 
                         }
@@ -129,9 +130,20 @@ namespace ConsoleAppHomeWork3
                     Monster _werewolf = AddWerewolf();
                     return _werewolf;
                 }
+                else if (inputMonster == "4")
+                {
+                    Monster _gost = AddGost();
+                    return _gost;
+                }
                 else if(inputMonster == "q")
                 {
                     return null;
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Не верно введен номер, повторите ввод");
+                    Console.WriteLine();
                 }
                 
             }while(true);
@@ -144,6 +156,8 @@ namespace ConsoleAppHomeWork3
             Console.WriteLine("1 Добавить скелета");
             Console.WriteLine("2 Добавить зомби");
             Console.WriteLine("3 Добавить оборотня");
+            Console.WriteLine("4 Добавить призрака");
+            Console.WriteLine("Для возврата в основное меню нажмите 'q'");
             Console.WriteLine();
         }
 
@@ -181,6 +195,19 @@ namespace ConsoleAppHomeWork3
             Console.WriteLine();
             Console.WriteLine("Оборотень " + werewolf.Name + " добавлен! Атакуйте!");
             return werewolf;
+        }
+
+        private static Monster AddGost()
+        {
+            Random rnd = new Random();
+            Monster gost = new Monster();
+            int randomIndex = rnd.Next(gost.gostName.Length);
+            gost.Type = "Призрак";
+            gost.Name = gost.gostName[randomIndex];
+            gost.IsFly = true;
+            Console.WriteLine();
+            Console.WriteLine("Призрак " + gost.Name + " добавлен! Атакуйте!");
+            return gost;
         }
 
         private static Monster UpgradeMonster(List<Monster> monsters)
@@ -412,6 +439,7 @@ namespace ConsoleAppHomeWork3
         public string[] skeletName = new string[] { "Боб", "Ден", "Билл", "без имени" };
         public string[] zombiName = new string[] { "Дон", "Бутч", "Айзек", "без имени" };
         public string[] werewolfName = new string[] { "Тони", "Стен", "Кайл", "без имени" };
+        public string[] gostName = new string[] { "Энтони", "Майк", "Эрен", "без имени" };
         public string Type { get; set; }
         public string Name { get; set; }
 
@@ -425,6 +453,8 @@ namespace ConsoleAppHomeWork3
 
         public bool IsInvisibility = false;
 
+        public bool IsFly = false;
+
         public int Index;
                 
         public void TakeDamage(int damage)
@@ -436,6 +466,35 @@ namespace ConsoleAppHomeWork3
             else
             {
                 this.Health -= damage / 2;
+            }
+
+            if (this.IsInvisibility == false)
+            {
+                this.Health -= damage - 10;
+            }
+            else
+            {
+                this.Health -= damage / 4;
+            }
+        }
+
+        public void Move()
+        {
+            if (this.IsFly == false)
+            {
+                if (this.Name != "без имени")
+                {
+                    Console.WriteLine(this.Name + " ходит");
+                }
+                else Console.WriteLine("Этот " + this.Type + " ходит");
+            }
+            else
+            {
+                if (this.Name != "без имени")
+                {
+                    Console.WriteLine(this.Name + " летает");
+                }
+                else Console.WriteLine("Этот " + this.Type + " летает");
             }
         }
     }
